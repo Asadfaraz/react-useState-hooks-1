@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+// importing hook
 
 function App() {
+  // Setting useState Hook
+  const [title, setTitle] = useState("Learning React Hooks Lesson 1");
+
+  // Button click and changing title function
+  const changeTitleBtn = () => {
+    if (title == "Learning React Hooks Lesson 1") {
+      setTitle("Title Changed... Yesss!!!");
+    } else {
+      setTitle("Learning React Hooks Lesson 1");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment className="App">
+      <section>
+        <h1>{title}</h1>
+
+        {/* Button to change title */}
+        <button type="button" onClick={changeTitleBtn}>
+          Change Title
+        </button>
+      </section>
+    </React.Fragment>
   );
 }
 
